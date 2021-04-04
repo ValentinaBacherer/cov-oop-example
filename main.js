@@ -6,14 +6,23 @@ class Square {
         this.div.classList.add('square')
         this.div.style.left = `${x}px`
         this.div.style.top = `${y}px`
-        this.div.addEventListener('click', function () {
-            console.log(this);
+        this.div.addEventListener('click', () => {
+
             if (randomVal(0, 10) % 2 === 0) {
                 this.updateColor()
             } else {
                 this.updateLocation()
             }
-        }.bind(this))
+        })
+        // old way of doing it. if i want to refer to the div in DOM i take out the final bind
+        // this.div.addEventListener('click', function () {
+        //     console.log(this);
+        //     if (randomVal(0, 10) % 2 === 0) {
+        //         this.updateColor()
+        //     } else {
+        //         this.updateLocation()
+        //     }
+        // }.bind(this))
         this.updateColor()
         container.appendChild(this.div)
     }
